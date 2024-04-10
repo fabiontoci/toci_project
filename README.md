@@ -19,3 +19,8 @@ Starting from a use case the architectural diagram will be :
 
 
 Starting from the use case, for each service, class diagram  will be created:
+
+![image](https://github.com/fabiontoci/toci_project/assets/163332659/b6be8b5e-aa4b-41a0-9b85-ef22f5bf03ef)
+
+![image](https://github.com/fabiontoci/toci_project/assets/163332659/0c951080-3408-4452-9a84-914addfee0ff)
+
