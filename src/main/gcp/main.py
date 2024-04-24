@@ -6,12 +6,12 @@ def main():
     bq_client = bigquery_connector.create_bigquery_client()
 
     # Esegui operazioni su BigQuery
-    dataset_id = 'il_tuo_dataset'
+    dataset_id = 'dataset_chieregatoD'
     tables = bigquery_operations.list_tables(bq_client, dataset_id)
     print("Nomi delle tabelle nel dataset:")
     print(tables)
 
-    table_id = 'il_tuo_table'
+    table_id = 'film'
     schema = bigquery_operations.get_table_schema(bq_client, dataset_id, table_id)
     print("Schema della tabella:")
     print(schema)

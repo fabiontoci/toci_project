@@ -2,12 +2,15 @@
 name = "ntt-project"
 version = "0.1.0"
 description = ""
-authors = ["Fabion Toci <toci.fabion.nttdata@skytv.it>"]
+authors = ["Fabion Toci <fabitoci14@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
 
+google-cloud = "^0.34.0"
+google-cloud-storage = "^2.16.0"
+google-cloud-bigquery = "^3.21.0"
 
 [build-system]
 requires = ["poetry-core"]
