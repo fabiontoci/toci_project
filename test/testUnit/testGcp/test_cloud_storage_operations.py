@@ -1,28 +1,31 @@
 import unittest
-from unittest.mock import MagicMock
-from utils.cloud_storage_operations import list_files_in_bucket
+from unittest.mock import Mock, patch
+from src.main.gcp.utils.cloud_storage_operations import list_files_in_bucket
 
+class TestListFilesInBucket(unittest.TestCase):
 
-class TestCloudStorageOperations(unittest.TestCase):
     def test_list_files_in_bucket(self):
         # Mock del client Cloud Storage
-        client_mock = MagicMock()
-        # Definizione di un nome fittizio del bucket
-        bucket_name = "fake_bucket"
-        # Simulazione della lista dei file nel bucket
-        client_mock.get_bucket.return_value.list_blobs.return_value = [
-            MagicMock(name="file1.txt"),
-            MagicMock(name="file2.csv")
-        ]
+        mock_client = Mock()
+        # Mock del risultato della lista dei file
+        mock_blob1 = Mock()
+        mock_blob1.name = 'file1.txt'
+        mock_blob2 = Mock()
+        mock_blob2.name = 'file2.txt'
+        mock_bucket = Mock()
+        mock_bucket.list_blobs.return_value = [mock_blob1, mock_blob2]
+        mock_client.get_bucket.return_value = mock_bucket
 
-        # Esecuzione della funzione da testare
-        with unittest.mock.patch('builtins.print') as mock_print:
-            list_files_in_bucket(client_mock, bucket_name)
+        # Chiamata alla funzione da testare
+        bucket_name = 'fake_bucket'
+        result = list_files_in_bucket(mock_client, bucket_name)
 
-        # Verifica che la funzione print sia stata chiamata con i valori corretti
-        mock_print.assert_any_call("Nome file: file1.txt")
-        mock_print.assert_any_call("Nome file: file2.csv")
+        # Verifica che la funzione restituisca correttamente i nomi dei file
+        expected_result = ['file1.txt', 'file2.txt']
+        self.assertEqual(result, expected_result)
+        # Verifica che la funzione abbia chiamato correttamente i metodi del client Cloud Storage
+        mock_client.get_bucket.assert_called_once_with(bucket_name)
+        mock_bucket.list_blobs.assert_called_once_with()
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
