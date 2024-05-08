@@ -31,7 +31,7 @@ class TestBucketFunctions(unittest.TestCase):
         remote_path_query = "configuration/flow/test_db/test_table/snapshot/query/query.sql"
         remote_path_schema = "configuration/flow/test_db/test_table/snapshot/schema/schema.json"
 
-    # Mock bucket object
+        # Mock bucket object
         mock_bucket = MagicMock()
         mock_client.return_value.bucket.return_value = mock_bucket
 
