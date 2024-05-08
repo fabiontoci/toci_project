@@ -1,0 +1,6 @@
+{
+  "query_location": "C:\\Users\\ETOCIFADF\\OneDrive - NTT DATA EMEAL\\Desktop\\project_ntt\\toci_project\\conf\\flow\\test_db\\test_table\\snapshot\\query\\query.sql",
+  "schema_location": "C:\\Users\\ETOCIFADF\\OneDrive - NTT DATA EMEAL\\Desktop\\project_ntt\\toci_project\\conf\\flow\\test_db\\test_table\\snapshot\\schema\\schema.json",
+  "table_name": "test_table",
+  "dataset_name": "Dataset_Toci"
+}
